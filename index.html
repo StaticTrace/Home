@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A clean and simple basic website template built with pure HTML, CSS, and JavaScript.">
-    <title>BasicSite • Modern & Simple</title>
+    <meta name="description" content="Vault — Free browser-based text and image storage. Save notes, paste text, upload photos instantly. All data stays in your browser.">
+    <title>Vault • Text &amp; Image Storage</title>
     <style>
         :root {
-            --primary: #0066ff;
+            --primary: #00b894;
             --text: #222222;
             --bg: #f8f9fa;
         }
@@ -27,14 +27,14 @@
         
         header {
             background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
         nav {
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 1rem 2rem;
             display: flex;
@@ -43,10 +43,13 @@
         }
         
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .nav-links {
@@ -75,25 +78,25 @@
         }
         
         .hero {
-            background: linear-gradient(135deg, #0066ff, #00ccff);
+            background: linear-gradient(135deg, #00b894, #00d2aa);
             color: white;
-            padding: 120px 2rem 100px;
+            padding: 100px 2rem 80px;
             text-align: center;
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 1rem;
             line-height: 1.2;
         }
         
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             margin-bottom: 2rem;
             opacity: 0.95;
         }
@@ -102,83 +105,281 @@
             display: inline-block;
             background: white;
             color: var(--primary);
-            padding: 14px 32px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
             transition: all 0.3s;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
         
-        section {
-            max-width: 1200px;
+        .app-container {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 80px 2rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text);
-        }
-        
-        .about-text {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            color: #444;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 16px;
             padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s;
         }
         
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .card h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-            color: var(--primary);
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            display: grid;
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
             gap: 1rem;
         }
         
-        input, textarea {
-            padding: 16px;
-            border: 2px solid #ddd;
-            border-radius: 12px;
-            font-size: 1rem;
-            width: 100%;
+        .dashboard-header h2 {
+            font-size: 2.2rem;
+            color: var(--text);
         }
         
-        input:focus, textarea:focus {
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .stat {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            min-width: 120px;
+        }
+        
+        .stat-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .search-bar {
+            width: 100%;
+            max-width: 420px;
+            padding: 14px 20px;
+            border: 2px solid #ddd;
+            border-radius: 50px;
+            font-size: 1.1rem;
             outline: none;
+        }
+        
+        .search-bar:focus {
             border-color: var(--primary);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .tab {
+            padding: 12px 28px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 12px 12px 0 0;
+            transition: all 0.3s;
+        }
+        
+        .tab.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        .card-text {
+            padding: 1.25rem;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-text .preview {
+            flex: 1;
+            overflow: hidden;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #555;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+        }
+        
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .type-badge {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        
+        .text-badge { background: #e8f5e9; color: #2e7d32; }
+        .image-badge { background: #e3f2fd; color: #1565c0; }
+        
+        .item-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .item-date {
+            font-size: 0.85rem;
+            color: #888;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+        
+        .empty-state h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Modals */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 620px;
+            max-height: 90vh;
+            overflow: auto;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #999;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .upload-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .upload-tab {
+            flex: 1;
+            padding: 14px;
+            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .upload-tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            margin-bottom: 1rem;
+        }
+        
+        textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+        
+        .preview-image {
+            max-width: 100%;
+            max-height: 320px;
+            border-radius: 12px;
+            margin: 1rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .view-content img {
+            width: 100%;
+            border-radius: 16px;
+            margin: 1rem 0;
+        }
+        
+        .view-content .text-full {
+            white-space: pre-wrap;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 12px;
         }
         
         footer {
@@ -213,7 +414,6 @@
                 background: white;
                 flex-direction: column;
                 align-items: center;
-                justify-content: start;
                 padding-top: 3rem;
                 transition: 0.4s;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -228,8 +428,35 @@
             }
             
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 2.6rem;
             }
+            
+            .items-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+        }
+        
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4);
+            cursor: pointer;
+            z-index: 100;
+            transition: 0.3s;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -237,143 +464,526 @@
     <!-- HEADER -->
     <header>
         <nav>
-            <a href="#" class="logo">BasicSite</a>
+            <a href="#" class="logo">
+                📦 Vault
+            </a>
             
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#library" onclick="switchToLibrary()">Library</a></li>
+                <li><a href="#" onclick="showUploadModal(); return false;">Upload</a></li>
             </ul>
             
             <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
         </nav>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
+    <!-- HERO -->
+    <section class="hero">
         <div class="hero-content">
-            <h1>Welcome to Your<br>Basic Website</h1>
-            <p>Clean, fast, and fully responsive. Built with pure HTML + CSS + JavaScript. No frameworks needed.</p>
-            <a href="#contact" class="btn">Get Started Free</a>
+            <h1>Store Text &amp; Images<br>Instantly &amp; Privately</h1>
+            <p>Your personal vault. Paste notes, upload photos, and keep everything safe — right in your browser. No sign-up. No cloud. 100% private.</p>
+            <a href="#dashboard" class="btn">Open My Vault Now</a>
+            <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.9;">Demo version • Data saved only on this device</p>
         </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
-        <h2>About Us</h2>
-        <p class="about-text">
-            This is a complete, ready-to-use basic website template. 
-            Perfect for portfolios, small businesses, blogs, or just learning HTML & CSS. 
-            Everything is in one file — just copy, paste, and customize!
-        </p>
-    </section>
+    <!-- DASHBOARD / APP SECTION -->
+    <section id="dashboard" class="app-container">
+        
+        <div class="dashboard-header">
+            <h2>Your Vault</h2>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="totalItems">0</div>
+                    <div>Total Items</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalTexts">0</div>
+                    <div>Text Notes</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalImages">0</div>
+                    <div>Images</div>
+                </div>
+            </div>
+            
+            <input type="text" id="searchInput" class="search-bar" placeholder="🔎 Search notes or images..." onkeyup="if(event.key==='Enter') filterItems()">
+        </div>
 
-    <!-- FEATURES SECTION -->
-    <section id="features" style="background: #f0f4ff;">
-        <h2>Why Choose BasicSite?</h2>
-        <div class="features">
-            <div class="card">
-                <h3>🚀 Fast</h3>
-                <p>No external dependencies. Loads instantly on any device.</p>
-            </div>
-            <div class="card">
-                <h3>📱 Responsive</h3>
-                <p>Looks perfect on phones, tablets, and desktops.</p>
-            </div>
-            <div class="card">
-                <h3>🎨 Modern</h3>
-                <p>Clean design with beautiful colors and smooth animations.</p>
-            </div>
-            <div class="card">
-                <h3>🔧 Customizable</h3>
-                <p>Easy to edit colors, text, and add your own content.</p>
-            </div>
+        <!-- TABS -->
+        <div class="tabs" id="tabs">
+            <div class="tab active" onclick="setFilter('all')">All Items</div>
+            <div class="tab" onclick="setFilter('text')">Text Notes</div>
+            <div class="tab" onclick="setFilter('image')">Images</div>
+        </div>
+
+        <!-- ITEMS GRID -->
+        <div id="itemsGrid" class="items-grid">
+            <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <h3>Your vault is empty</h3>
+            <p>Start storing text notes and images using the + button below 👇</p>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <h2>Get In Touch</h2>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn" style="width: 100%; margin-top: 10px;">Send Message</button>
-        </form>
-    </section>
+    <!-- FLOATING ACTION BUTTON -->
+    <div class="fab" onclick="showUploadModal()" title="Upload new item">
+        +
+    </div>
+
+    <!-- UPLOAD MODAL -->
+    <div id="uploadModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add to Vault</h3>
+                <button class="close-btn" onclick="hideUploadModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Upload Tabs -->
+                <div class="upload-tabs">
+                    <div id="textTab" class="upload-tab active" onclick="switchUploadTab(0)">📝 Text Note</div>
+                    <div id="imageTab" class="upload-tab" onclick="switchUploadTab(1)">🖼️ Image</div>
+                </div>
+                
+                <!-- Text Form -->
+                <div id="textUploadForm">
+                    <input type="text" id="textTitle" placeholder="Title (optional)" maxlength="80">
+                    <textarea id="textContent" placeholder="Paste or type your note here..."></textarea>
+                    <button onclick="saveTextItem()" class="btn" style="width: 100%; background: var(--primary); color: white;">Save Text Note</button>
+                </div>
+                
+                <!-- Image Form -->
+                <div id="imageUploadForm" style="display: none;">
+                    <input type="text" id="imageTitle" placeholder="Image title (optional)" maxlength="80">
+                    <input type="file" id="imageFile" accept="image/*" style="margin-bottom: 1rem;">
+                    <div id="imagePreviewContainer" style="display: none; text-align: center;">
+                        <img id="imagePreview" class="preview-image" alt="Preview">
+                    </div>
+                    <button onclick="saveImageItem()" class="btn" style="width: 100%; background: var(--primary); color: white;">Upload &amp; Save Image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW / DETAIL MODAL -->
+    <div id="viewModal" class="modal">
+        <div class="modal-content" style="max-width: 720px;">
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <button class="close-btn" onclick="hideViewModal()">✕</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Filled by JavaScript -->
+            </div>
+            <div style="padding: 1rem 2rem; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 1rem;">
+                <button onclick="deleteCurrentItem()" style="padding: 12px 28px; background: #ff5252; color: white; border: none; border-radius: 50px; font-weight: 600; cursor: pointer;">🗑️ Delete</button>
+                <button onclick="hideViewModal()" class="btn" style="background: #222; color: white;">Close</button>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 BasicSite Template. Made with ❤️ for learning.</p>
+        <p><strong>Vault</strong> — Text &amp; Image Storage Demo</p>
+        <p style="margin-top: 0.5rem; font-size: 0.95rem; opacity: 0.8;">Built as a single-file HTML app • Everything runs locally in your browser using localStorage</p>
         
         <div class="footer-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">GitHub</a>
-            <a href="#">Twitter</a>
+            <a href="#" onclick="clearAllData(); return false;">Clear All Data</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="#">How it Works</a>
+            <a href="#">Privacy (Demo)</a>
         </div>
         
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
-            Just save this as <strong>index.html</strong> and open it in your browser!
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.6;">
+            Just save this file as <strong>index.html</strong> and open it in any browser — no server needed!
         </p>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('navLinks');
+        // Global storage
+        let vaultItems = [];
+        let currentFilter = 'all';
+        let currentViewItemId = null;
         
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Change hamburger icon
-            if (navLinks.classList.contains('active')) {
-                hamburger.textContent = '✕';
+        const STORAGE_KEY = 'vaultItems';
+        
+        // Load items from localStorage
+        function loadItems() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                vaultItems = JSON.parse(saved);
             } else {
-                hamburger.textContent = '☰';
+                vaultItems = [];
             }
-        });
-        
-        // Close menu when clicking a link
-        const links = navLinks.querySelectorAll('a');
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.textContent = '☰';
-            });
-        });
-        
-        // Simple form submission handler
-        function handleSubmit(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            
-            alert(`✅ Thank you, ${name}! Your message has been received.\n\n(This is a demo — no real email is sent.)`);
-            
-            // Reset form
-            e.target.reset();
         }
         
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') === '#') return;
+        // Save items to localStorage
+        function saveItems() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(vaultItems));
+        }
+        
+        // Update stats in header
+        function updateStats() {
+            const total = vaultItems.length;
+            const texts = vaultItems.filter(item => item.type === 'text').length;
+            const images = vaultItems.filter(item => item.type === 'image').length;
+            
+            document.getElementById('totalItems').textContent = total;
+            document.getElementById('totalTexts').textContent = texts;
+            document.getElementById('totalImages').textContent = images;
+        }
+        
+        // Render the items grid
+        function renderItems(filteredItems) {
+            const grid = document.getElementById('itemsGrid');
+            const empty = document.getElementById('emptyState');
+            grid.innerHTML = '';
+            
+            if (filteredItems.length === 0) {
+                empty.style.display = 'block';
+                grid.style.display = 'none';
+                return;
+            }
+            
+            empty.style.display = 'none';
+            grid.style.display = 'grid';
+            
+            filteredItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.setAttribute('data-id', item.id);
                 
-                e.preventDefault();
+                const date = new Date(item.date).toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
                 
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                if (item.type === 'image') {
+                    card.innerHTML = `
+                        <img src="${item.content}" class="card-image" alt="${item.title}">
+                        <div class="card-text">
+                            <div class="card-header">
+                                <span class="type-badge image-badge">IMAGE</span>
+                                <span class="item-date">${date}</span>
+                            </div>
+                            <h4>${item.title || 'Untitled Image'}</h4>
+                        </div>
+                    `;
+                } else {
+                    // Text card
+                    const previewText = item.content.length > 120 
+                        ? item.content.substring(0, 120) + '...' 
+                        : item.content;
+                    
+                    card.innerHTML = `
+                        <div class="card-text">
+                            <div class="card-header">
+                                <span class="type-badge text-badge">TEXT</span>
+                                <span class="item-date">${date}</span>
+                            </div>
+                            <h4>${item.title || 'Untitled Note'}</h4>
+                            <div class="preview">${previewText}</div>
+                        </div>
+                    `;
+                }
+                
+                // Click to open view modal
+                card.addEventListener('click', () => {
+                    showViewModal(item.id);
+                });
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        // Filter items based on current filter and search
+        function filterItems() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            let filtered = vaultItems;
+            
+            // Apply type filter
+            if (currentFilter !== 'all') {
+                filtered = filtered.filter(item => item.type === currentFilter);
+            }
+            
+            // Apply search
+            if (searchTerm) {
+                filtered = filtered.filter(item => {
+                    const titleMatch = (item.title || '').toLowerCase().includes(searchTerm);
+                    const contentMatch = (item.content || '').toLowerCase().includes(searchTerm);
+                    return titleMatch || contentMatch;
+                });
+            }
+            
+            // Sort newest first
+            filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            renderItems(filtered);
+        }
+        
+        // Set active filter tab
+        function setFilter(filter) {
+            currentFilter = filter;
+            
+            // Update active tab
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+                if ((filter === 'all' && tab.textContent === 'All Items') ||
+                    (filter === 'text' && tab.textContent === 'Text Notes') ||
+                    (filter === 'image' && tab.textContent === 'Images')) {
+                    tab.classList.add('active');
                 }
             });
-        });
+            
+            filterItems();
+        }
         
-        console.log('%c✅ Basic Website loaded successfully!', 'color: #0066ff; font-size: 16px; font-weight: bold;');
+        // Show upload modal
+        function showUploadModal() {
+            document.getElementById('uploadModal').style.display = 'flex';
+            // Reset to text tab by default
+            switchUploadTab(0);
+            
+            // Clear previous inputs
+            document.getElementById('textTitle').value = '';
+            document.getElementById('textContent').value = '';
+            document.getElementById('imageTitle').value = '';
+            document.getElementById('imageFile').value = '';
+            document.getElementById('imagePreviewContainer').style.display = 'none';
+        }
+        
+        function hideUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+        
+        // Switch between text and image upload tabs
+        function switchUploadTab(tabIndex) {
+            const textTab = document.getElementById('textTab');
+            const imageTab = document.getElementById('imageTab');
+            const textForm = document.getElementById('textUploadForm');
+            const imageForm = document.getElementById('imageUploadForm');
+            
+            if (tabIndex === 0) {
+                textTab.classList.add('active');
+                imageTab.classList.remove('active');
+                textForm.style.display = 'block';
+                imageForm.style.display = 'none';
+            } else {
+                textTab.classList.remove('active');
+                imageTab.classList.add('active');
+                textForm.style.display = 'none';
+                imageForm.style.display = 'block';
+                
+                // Setup image preview listener
+                const fileInput = document.getElementById('imageFile');
+                fileInput.onchange = handleImageSelect;
+            }
+        }
+        
+        // Handle image file selection and preview
+        function handleImageSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            if (!file.type.startsWith('image/')) {
+                alert('Please select a valid image file.');
+                return;
+            }
+            
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                const previewImg = document.getElementById('imagePreview');
+                previewImg.src = ev.target.result;
+                document.getElementById('imagePreviewContainer').style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        // Save a new text item
+        function saveTextItem() {
+            const title = document.getElementById('textTitle').value.trim();
+            const content = document.getElementById('textContent').value.trim();
+            
+            if (!content) {
+                alert('Please enter some text to save.');
+                return;
+            }
+            
+            const newItem = {
+                id: Date.now(),
+                type: 'text',
+                title: title || 'Untitled Note',
+                content: content,
+                date: new Date().toISOString()
+            };
+            
+            vaultItems.unshift(newItem);
+            saveItems();
+            updateStats();
+            hideUploadModal();
+            filterItems();
+            
+            // Success feedback
+            showToast('Text note saved to Vault ✅');
+        }
+        
+        // Save a new image item
+        function saveImageItem() {
+            const title = document.getElementById('imageTitle').value.trim();
+            const fileInput = document.getElementById('imageFile');
+            const previewSrc = document.getElementById('imagePreview').src;
+            
+            if (!fileInput.files[0] || !previewSrc) {
+                alert('Please select an image to upload.');
+                return;
+            }
+            
+            const newItem = {
+                id: Date.now(),
+                type: 'image',
+                title: title || 'Untitled Image',
+                content: previewSrc, // base64 data URL
+                date: new Date().toISOString()
+            };
+            
+            vaultItems.unshift(newItem);
+            saveItems();
+            updateStats();
+            hideUploadModal();
+            filterItems();
+            
+            showToast('Image saved to Vault ✅');
+        }
+        
+        // Show view modal for an item
+        function showViewModal(id) {
+            currentViewItemId = id;
+            const item = vaultItems.find(i => i.id === id);
+            if (!item) return;
+            
+            document.getElementById('viewModal').style.display = 'flex';
+            document.getElementById('modalTitle').textContent = item.title;
+            
+            const body = document.getElementById('modalBody');
+            
+            if (item.type === 'image') {
+                body.innerHTML = `
+                    <div class="view-content">
+                        <img src="${item.content}" alt="${item.title}">
+                        <p style="margin-top: 1rem; text-align: center; color: #666; font-size: 0.95rem;">
+                            Uploaded on ${new Date(item.date).toLocaleString()}
+                        </p>
+                    </div>
+                `;
+            } else {
+                body.innerHTML = `
+                    <div class="view-content">
+                        <div class="text-full">${item.content}</div>
+                        <p style="margin-top: 1rem; text-align: center; color: #666; font-size: 0.95rem;">
+                            Saved on ${new Date(item.date).toLocaleString()}
+                        </p>
+                    </div>
+                `;
+            }
+        }
+        
+        function hideViewModal() {
+            document.getElementById('viewModal').style.display = 'none';
+            currentViewItemId = null;
+        }
+        
+        // Delete the currently viewed item
+        function deleteCurrentItem() {
+            if (!currentViewItemId) return;
+            
+            if (confirm('Delete this item permanently?')) {
+                vaultItems = vaultItems.filter(item => item.id !== currentViewItemId);
+                saveItems();
+                updateStats();
+                hideViewModal();
+                filterItems();
+                showToast('Item deleted');
+            }
+        }
+        
+        // Clear entire vault
+        function clearAllData() {
+            if (confirm('⚠️ This will delete EVERYTHING in your Vault permanently.\n\nAre you sure?')) {
+                vaultItems = [];
+                saveItems();
+                updateStats();
+                filterItems();
+                showToast('Vault cleared');
+            }
+        }
+        
+        // Simple toast notification
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+                background: #222; color: white; padding: 14px 24px; border-radius: 50px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 3000; font-weight: 500;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.4s';
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 400);
+            }, 2800);
+        }
+        
+        // Switch to Library tab from nav
+        function switchToLibrary() {
+            document.getElementById('dashboard').scrollIntoView({ behavior: 'smooth' });
+            setFilter('all');
+        }
+        
+        // Mobile hamburger menu
+        function initMobileMenu() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            });
+            
+            // Close menu when clicking links
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    hamburger.textContent = '☰';
+                });
+            });
+        }
+        
+        // Main initialization
+        window.onload = function() {
+            loadItems();
+            updateStats();
+            filterItems(); // initial render
+            
+            initMobileMenu();
+            
+            // Console message
+            console.log('%c✅ Vault loaded! Your text & image storage is ready.', 'color: #00b894; font-size: 15px; font-weight: bold;');
+            
+            // Keyboard shortcut hint
+            console.log('%c💡 Tip: Press the green + button to add text or images', 'color: #00b894;');
+        };
     </script>
 </body>
 </html>
